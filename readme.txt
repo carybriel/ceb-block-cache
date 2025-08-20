@@ -1,4 +1,38 @@
 
+=== CEB Block Cache ===
+Contributors: carybriel
+Tags: caching, performance, gutenberg, blocks, transient, object-cache
+Requires at least: 5.8
+Tested up to: 6.6
+Stable tag: 0.1
+License: MIT
+License URI: https://opensource.org/licenses/MIT
+
+Caches server-side rendered Gutenberg blocks and flushes the cache when relevant content is updated.
+
+== Description ==
+
+**CEB Block Cache** is a lightweight performance plugin that caches the rendered HTML output of server-side Gutenberg blocks.  
+
+By caching block rendering, page load times improve significantly for blocks that pull dynamic data or run expensive queries. The cache is automatically invalidated when related content or settings are updated, ensuring fresh output.
+
+### Features
+* Transparent caching of server-side rendered Gutenberg blocks.
+* Supports both **WordPress transients** and **external object cache** backends (e.g., Redis, Memcached).
+* Automatic cache flushing when:
+  - Posts, pages, or templates are saved.
+  - Advanced Custom Fields (ACF) content is updated.
+  - Navigation menus are created, updated, or deleted.
+  - The Customizer is saved.
+  - Theme mods or general site options are updated.
+  - Taxonomy terms are created, edited, or deleted.
+  - Widgets or sidebars are updated.
+* Debug mode (`CEB_BLOCK_CACHE_DEBUG`) logs cache hits and misses.
+* Includes a WP-CLI command for manual cache flushing.
+
+### WP-CLI
+You can flush the block cache group manually with:
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/ceb-block-cache/` directory, or install directly from the WordPress Plugins screen.
